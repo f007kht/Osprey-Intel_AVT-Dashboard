@@ -68,7 +68,7 @@
             border: 2px solid #fff;
             box-shadow: 0 0 5px rgba(0,0,0,0.2);
         }
-         .accordion-icon {
+        .accordion-icon {
             width: 12px;
             height: 12px;
             border-style: solid;
@@ -211,7 +211,6 @@
             <h2 class="text-3xl font-bold text-[#383733] mb-2">Milestones & Inflection Points</h2>
             <p class="text-lg text-gray-600 mb-8 max-w-3xl">A timeline of key achievements and projected clinical and regulatory milestones based on public data.</p>
             <div id="milestones-container" class="space-y-6">
-                <!-- Populated by JavaScript -->
             </div>
         </section>
 
@@ -322,9 +321,53 @@
         document.addEventListener('DOMContentLoaded', function () {
             
             const dashboardData = {
-              companyProfile: { /* ... */ },
-              team: { /* ... */ },
-              deviceDetails: { /* ... */ },
+              companyProfile: {
+                description: { value: "Developer of a pulmonary heart valve designed to treat pediatric patients, reducing the need for repeated surgeries as the child grows.", source: "Company Website" },
+                founded: { year: "2019", location: "Delaware, USA", source: "Company Website" },
+                leadership: { name: "Sophie-Charlotte Hofferberth", title: "Chief Executive Officer", source: "PitchBook" },
+                location: { city: "Boston, MA", detail: "Principal Place of Business", source: "PitchBook" }
+              },
+              team: {
+                founders: [
+                  { name: "Sophie-Charlotte Hofferberth, MD", image: "images/hofferberth.jpg", bio: "Physician-scientist and inventor of the Autus Valve technology. Dr. Hofferberth serves as the CEO and Study Director, bringing deep clinical and technical expertise to the company's leadership." },
+                  { name: "Pedro J. del Nido, MD", image: "images/del_nido.jpg", bio: "Co-inventor and Professor of Surgery at Harvard Medical School. A world-renowned pediatric cardiac surgeon, providing invaluable clinical guidance." }
+                ],
+                management: [
+                  { name: "David Hoganson, MD", image: "images/heyninck-jantz.jpg", title: "Chief Medical Officer", bio: "Leads clinical strategy and regulatory affairs, leveraging extensive experience in pediatric cardiac surgery and medical device development." }
+                ],
+                contact: {
+                  address: ["65 Park Drive, Apt. 4", "Boston, MA 02215", "United States"],
+                  email: "info@autusvalve.com"
+                }
+              },
+              deviceDetails: {
+                heroImage: "images/autus_valve_render.png",
+                summaryTitle: "THE AUTUS VALVE",
+                features: [
+                    "Surgically implanted pulmonary valve replacement",
+                    "Novel biomimetic bileaflet design",
+                    "Inspired by the geometry of the human venous valve",
+                    "Fully synthetic",
+                    "Functions across a wide range of diameters",
+                    "Customizable implant diameter",
+                    "Designed to be balloon expanded via minimally invasive transcatheter approach as the patient grows"
+                ],
+                youtubeId: "Ywksgqo3zNM",
+                patentExhibits: [
+                    { 
+                        title: "Core Mechanism: In-Situ Expansion",
+                        caption: "Patent diagrams showing the valve pre-expansion (left) and post-expansion (right), illustrating the frame's ability to enlarge within the vessel.",
+                        imageSrc: "https://patentimages.storage.googleapis.com/ab/a1/35/a368318534f3b2/US10966826-20210406-D00003.png",
+                        source: "US Patent 10,966,826 B2"
+                    },
+                    {
+                        title: "In-Vivo Proof of Concept",
+                        caption: "Demonstration of the valve accommodating growth from a 20kg lamb to a 60kg sheep.",
+                        imageSrc: "https://patentimages.storage.googleapis.com/dims-public/US10966826-20210406-P00025.png",
+                        source: "US Patent 10,966,826 B2"
+                    }
+                ]
+              },
               milestones: [
                 { date: "2019-01-01", title: "Company Founded", description: "Incorporated in Delaware.", type: "past" },
                 { date: "2021-01-01", title: "Grant Funding: $299,994", description: "From U.S. Dept. of Health and Human Services (STTR Phase I).", type: "past" },
@@ -336,10 +379,57 @@
                 { date: "2027-08-01", title: "Potential FDA Approval", description: "Projected timeline for potential market approval based on standard review cycles.", type: "future" },
                 { date: "2036-02-01", title: "Est. Study Completion", description: "Final data collection for long-term (10-year) patient follow-up.", type: "future" }
               ],
-              funding: { /* ... */ },
-              clinicalAndIp: { /* ... */ },
-              insights: [ /* ... */ ],
-              keyMetrics: { capTablePreMoneyValuation: 10000000 }
+              funding: {
+                totalRaised: 374994,
+                rounds: [
+                    { date: "2021-03-26", type: "Grant", amount: 50000, details: "From UCSF-Stanford Pediatric Device Consortium.", source: "PitchBook", sourceUrl: "https://pediatricdeviceconsortium.org/new-page-2" },
+                    { date: "2021-02-26", type: "Angel", amount: 25000, details: "Equity investment from undisclosed investors.", source: "SEC Form D", sourceUrl: "https://www.sec.gov/Archives/edgar/data/1849012/000184901221000001/xslFormDX01/primary_doc.xml" },
+                    { date: "2021-01-01", type: "Grant", amount: 299994, details: "From U.S. Dept. of Health and Human Services (STTR Phase I).", source: "PitchBook", sourceUrl: "https://legacy.www.sbir.gov/sbirsearch/detail/2185683" }
+                ]
+              },
+              clinicalAndIp: {
+                trial: {
+                  name: "Autus Valve Pivotal Study",
+                  identifier: "NCT05006404",
+                  status: "Recruiting",
+                  purpose: "A prospective, single-arm, multi-center study to evaluate the safety and effectiveness of the Autus Size-Adjustable Valve in pediatric patients.",
+                  enrollment: "50 Participants (Anticipated)",
+                  source: "ClinicalTrials.gov",
+                  source_url: "https://clinicaltrials.gov/study/NCT05006404"
+                },
+                ip: {
+                  summary: "The core IP portfolio protects the novel size-adjustable frame and biomimetic leaflet design, forming a strong competitive barrier.",
+                  patents: ["US 10,966,826 B2", "Additional patents pending"],
+                  source: "USPTO"
+                }
+              },
+               insights: [
+                 {
+                    "title": "Due Diligence Assessment: Autus Valve Technologies",
+                    "content": {
+                        "intro": "Venture capital due diligence focuses on three core pillars: the team, the market, and the product. For a pre-revenue company like Autus Valve, the strength of the management team is often the most critical factor, as they must navigate immense scientific and commercial challenges.",
+                        "points": [
+                            { "heading": "1. Management Team", "text": "The team is led by CEO Sophie-Charlotte Hofferberth, MD. Her medical background is a significant asset, as evidenced by her dual role as the Study Director for the company's pivotal clinical trial. This indicates deep technical and clinical expertise at the leadership level, which is crucial for credibility with investors, regulators, and clinical partners in the medtech space." },
+                            { "heading": "2. Market Opportunity", "text": "Autus Valve is targeting the pediatric congenital heart disease market. The primary challenge for patients is the need for repeated, high-risk open-heart surgeries as they outgrow their initial valve implants. Autus aims to solve this critical unmet need. The viability of this market is validated by significant VC investment in similar companies. For example, Xeltis, which also develops restorative cardiovascular devices, has raised nearly $200 million. Other competitors like Polyvascular and Starlight Cardiovascular are also VC-backed, demonstrating a strong and continued investor appetite for innovative solutions in this field." },
+                            { "heading": "3. Product & Technology", "text": "The company's core product is the Autus Size-Adjustable Pulmonary Valve, a fully synthetic implant. Its key technological differentiator is its ability to be expanded via transcatheter balloon dilation as the child grows, potentially eliminating the need for subsequent surgeries. The company has progressed beyond the concept phase and is actively recruiting for its 'Autus Valve Pivotal Study' as of early 2024, a major de-risking milestone that moves the product closer to regulatory review and commercialization." }
+                        ]
+                    }
+                },
+                 {
+                    "title": "Broader Medtech & VC Market Context",
+                    "content": {
+                        "intro": "Understanding the broader investment landscape is crucial for assessing a startup's potential. According to PitchBook's Q1 2025 preliminary data, the venture capital market continues to seek out capital-efficient companies with strong technical moats and clear market needs, especially in recession-resilient sectors like healthcare.",
+                        "points": [
+                            { "heading": "Investor Focus", "text": "Medtech investors like Broadview Ventures specifically target companies with novel solutions in cardiovascular health, validating the investment thesis behind firms like Autus Valve." },
+                            { "heading": "Funding Validation", "text": "The pediatric cardiovascular device space has seen consistent funding activity. Competitors such as Annoviant, Polyvascular, and Starlight Cardiovascular have all successfully secured grant funding and early-stage VC rounds, indicating a healthy ecosystem for innovation." },
+                            { "heading": "Exit Landscape", "text": "Mature companies in the broader restorative cardiovascular field, like the heavily-funded Xeltis (raising nearly $200M), signal a strong potential for high-value M&A exits. Acquirers are often large medical device corporations seeking to add innovative, high-growth products to their portfolios." }
+                        ]
+                    }
+                }
+              ],
+              keyMetrics: {
+                  capTablePreMoneyValuation: 10000000
+              }
             };
             
             // --- INITIALIZATION ---
@@ -354,9 +444,53 @@
             initializeNav();
 
             // --- FUNCTIONS ---
-            function populateProfileSection() { /* ... */ }
-            function populateTeamSection() { /* ... */ }
-            function populateDeviceSection() { /* ... */ }
+
+            function populateProfileSection() {
+                const profile = dashboardData.companyProfile;
+                document.getElementById('profile-description').textContent = profile.description.value;
+                document.getElementById('profile-description-source').textContent = `Source: ${profile.description.source}`;
+                document.getElementById('profile-founded-year').textContent = profile.founded.year;
+                document.getElementById('profile-founded-location').textContent = profile.founded.location;
+                document.getElementById('profile-founded-source').textContent = `Source: ${profile.founded.source}`;
+                document.getElementById('profile-leadership-name').textContent = profile.leadership.name;
+                document.getElementById('profile-leadership-title').textContent = profile.leadership.title;
+                document.getElementById('profile-leadership-source').textContent = `Source: ${profile.leadership.source}`;
+                document.getElementById('profile-location-city').textContent = profile.location.city;
+                document.getElementById('profile-location-detail').textContent = profile.location.detail;
+                document.getElementById('profile-location-source').textContent = `Source: ${profile.location.source}`;
+            }
+
+            function populateTeamSection() {
+                const team = dashboardData.team;
+                const container = document.getElementById('team-container');
+                let foundersHtml = team.founders.map(p => `
+                    <div class="flex items-start space-x-6">
+                        <img class="h-28 w-28 rounded-full object-cover border-4 border-white shadow-md flex-shrink-0" src="${p.image}" alt="Headshot of ${p.name}">
+                        <div><h4 class="font-bold text-lg">${p.name}</h4><p class="text-sm text-gray-700">${p.bio}</p></div>
+                    </div>`).join('');
+                
+                let managementHtml = team.management.map(p => `
+                    <div class="kpi-card p-6 rounded-lg text-center">
+                        <img class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg mb-4 mx-auto" src="${p.image}" alt="Headshot of ${p.name}">
+                        <h4 class="font-bold text-lg">${p.name}</h4>
+                        <p class="text-sm font-medium text-gray-500 mb-2">${p.title}</p>
+                    </div>`).join('');
+
+                const contactHtml = `<div class="kpi-card p-6 rounded-lg"><h4 class="font-bold text-lg mb-2">Contact</h4><p class="text-sm text-gray-700">${team.contact.address.join('<br>')}</p><a href="mailto:${team.contact.email}" class="text-sm text-gray-700 underline hover:text-[#8c7a6b] transition-colors mt-2 inline-block">${team.contact.email}</a></div>`;
+
+                container.innerHTML = `<div class="lg:col-span-2 space-y-8">${foundersHtml}</div><div class="space-y-8">${managementHtml}${contactHtml}</div>`;
+            }
+
+            function populateDeviceSection() {
+                const device = dashboardData.deviceDetails;
+                document.getElementById('device-hero-container').innerHTML = `<div class="kpi-card p-6 rounded-lg summary-card"><img src="${device.heroImage}" alt="Autus Valve Product Render" class="rounded-md mb-4 shadow"><h3 class="text-2xl font-bold mb-4 text-[#8c7a6b]">${device.summaryTitle}</h3><ul class="space-y-2 text-gray-700 list-disc">${device.features.map(f => `<li>${f}</li>`).join('')}</ul></div>`;
+                document.getElementById('device-video-container').innerHTML = `<div class="aspect-w-16 aspect-h-9"><iframe src="https://www.youtube.com/embed/${device.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe></div>`;
+                document.getElementById('device-exhibits-container').innerHTML = device.patentExhibits.map(e => `
+                    <div class="kpi-card rounded-lg overflow-hidden">
+                        <img src="${e.imageSrc}" alt="${e.title}" class="w-full h-auto object-cover">
+                        <div class="p-6"><h4 class="font-bold text-lg">${e.title}</h4><p class="text-sm text-gray-700 mt-2">${e.caption}</p><p class="text-xs text-gray-400 mt-4 border-t pt-2">Source: ${e.source}</p></div>
+                    </div>`).join('');
+            }
 
             function populateMilestonesSection() {
                 const container = document.getElementById('milestones-container');
@@ -379,12 +513,154 @@
                 container.innerHTML = milestonesHtml;
             }
 
-            function populateFundingSection() { /* ... */ }
-            function populateClinicalIpSection() { /* ... */ }
-            function populateInsights() { /* ... */ }
-            function initializeVcTools() { /* ... */ }
-            function initializeAccordions() { /* ... */ }
-            function initializeNav() { /* ... */ }
+            function populateFundingSection() {
+                 const funding = dashboardData.funding;
+                document.getElementById('funding-total-container').innerHTML = `<h3 class="text-sm font-medium text-gray-500">Total Known Funding</h3><p class="text-5xl font-bold text-[#8c7a6b]">${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(funding.totalRaised)}</p><p class="text-xs text-gray-500 mt-1">Sum of all identified financing events.</p>`;
+                
+                const timelineContainer = document.getElementById('timeline-container');
+                timelineContainer.innerHTML = '<h3 class="text-xl font-semibold">Funding Rounds & Milestones</h3>' + funding.rounds.sort((a, b) => new Date(b.date) - new Date(a.date)).map(round => `
+                    <div class="relative border-l-2 border-[#d4c8be] ml-4 pl-8 py-2">
+                        <div class="absolute -left-[11px] top-4 w-5 h-5 bg-[#8c7a6b] rounded-full border-4 border-white"></div>
+                        <p class="text-sm text-gray-500">${new Date(round.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                        <h4 class="font-semibold">${round.type} Round: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(round.amount)}</h4>
+                        <p class="text-sm text-gray-700">${round.details} (Source: <a href="${round.sourceUrl}" target="_blank" class="source-link">${round.source}</a>)</p>
+                    </div>`).join('');
+                
+                const fundingByType = funding.rounds.reduce((acc, round) => {
+                    const type = round.type === 'Angel' ? 'Angel/Equity' : 'Grant';
+                    acc[type] = (acc[type] || 0) + round.amount;
+                    return acc;
+                }, {});
+
+                new Chart(document.getElementById('fundingTypeChart').getContext('2d'), {
+                    type: 'doughnut',
+                    data: { labels: Object.keys(fundingByType), datasets: [{ data: Object.values(fundingByType), backgroundColor: ['#8c7a6b', '#d4c8be'], borderColor: '#ffffff', borderWidth: 4 }] },
+                    options: { responsive: true, maintainAspectRatio: false, cutout: '70%', plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => `${c.label}: ${c.formattedValue}` } } } }
+                });
+            }
+
+            function populateClinicalIpSection() {
+                const data = dashboardData.clinicalAndIp;
+                document.getElementById('clinical-ip-container').innerHTML = `
+                    <div class="kpi-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-[#8c7a6b]">Pivotal Clinical Trial</h3>
+                        <div class="space-y-3 text-sm">
+                            <p><strong class="font-medium text-gray-800">Name:</strong> ${data.trial.name}</p>
+                            <p><strong class="font-medium text-gray-800">Identifier:</strong> <a href="${data.trial.source_url}" target="_blank" class="source-link">${data.trial.identifier}</a></p>
+                            <p><strong class="font-medium text-gray-800">Status:</strong> ${data.trial.status}</p>
+                            <p><strong class="font-medium text-gray-800">Enrollment:</strong> ${data.trial.enrollment}</p>
+                            <p class="mt-2">${data.trial.purpose}</p>
+                        </div>
+                    </div>
+                    <div class="kpi-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-[#8c7a6b]">Intellectual Property</h3>
+                         <div class="space-y-3 text-sm">
+                            <p>${data.ip.summary}</p>
+                            <p><strong class="font-medium text-gray-800">Granted Patents:</strong> ${data.ip.patents.join(', ')}</p>
+                            <p class="text-xs text-gray-400 mt-4 border-t pt-2">Source: ${data.ip.source}</p>
+                        </div>
+                    </div>`;
+            }
+             function populateInsights() {
+                const container = document.getElementById('accordion-container');
+                container.innerHTML = dashboardData.insights.map((item, index) => {
+                    let contentHtml = `<p class="text-gray-600 mb-4">${item.content.intro}</p>`;
+                    if(item.content.points) {
+                        contentHtml += item.content.points.map(p => `<h4 class="font-semibold text-lg text-gray-800 mt-4 mb-2">${p.heading}</h4><p class="text-gray-600">${p.text}</p>`).join('');
+                    }
+                    return `
+                        <div class="accordion-item bg-white border border-gray-200 rounded-lg">
+                            <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold" aria-expanded="false">
+                                <span>${item.title}</span>
+                                <span class="accordion-icon"></span>
+                            </button>
+                            <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <div class="p-5 border-t border-gray-200">${contentHtml}</div>
+                            </div>
+                        </div>`;
+                }).join('');
+                initializeAccordions();
+            }
+
+            function initializeVcTools() {
+                const exitValueEl = document.getElementById('exitValue'), investmentAmountEl = document.getElementById('investmentAmount'), targetReturnEl = document.getElementById('targetReturn');
+                const ownershipEl = document.getElementById('ownership'), postMoneyEl = document.getElementById('postMoney'), preMoneyEl = document.getElementById('preMoney');
+                const seriesASlider = document.getElementById('seriesAInvestment'), seriesAValueEl = document.getElementById('seriesAValue'), capTableBodyEl = document.getElementById('capTableBody');
+                
+                function calculateVC() {
+                    const exitValue = parseFloat(exitValueEl.value) * 1e6, investmentAmount = parseFloat(investmentAmountEl.value) * 1e6, targetReturn = parseFloat(targetReturnEl.value);
+                    if (isNaN(exitValue) || isNaN(investmentAmount) || isNaN(targetReturn) || targetReturn <= 0) return;
+                    const ownership = (investmentAmount * targetReturn) / exitValue, postMoney = investmentAmount / ownership;
+                    ownershipEl.textContent = `${(ownership * 100).toFixed(1)}%`;
+                    postMoneyEl.textContent = `$${(postMoney / 1e6).toFixed(1)}M`;
+                    preMoneyEl.textContent = `$${((postMoney - investmentAmount) / 1e6).toFixed(1)}M`;
+                }
+
+                function updateCapTable() {
+                    const initialCapTable = {'Founders': { shares: 8e6, percentage: .8 },'Angel Investors': { shares: 1e6, percentage: .1 },'Option Pool': { shares: 1e6, percentage: .1 }};
+                    const preMoneyValuation = dashboardData.keyMetrics.capTablePreMoneyValuation, totalPreShares = 1e7;
+                    const seriesAInvestment = parseFloat(seriesASlider.value) * 1e6;
+                    seriesAValueEl.textContent = seriesASlider.value;
+                    const seriesAShares = seriesAInvestment / (preMoneyValuation / totalPreShares), totalPostShares = totalPreShares + seriesAShares;
+                    capTableBodyEl.innerHTML = Object.entries(initialCapTable).map(([stakeholder, data]) => `
+                        <tr class="bg-white border-b"><td class="px-4 py-3 font-medium text-gray-900">${stakeholder}</td><td class="px-4 py-3 text-right">${(data.percentage * 100).toFixed(1)}%</td><td class="px-4 py-3 text-right font-semibold text-gray-800">${((data.shares / totalPostShares) * 100).toFixed(1)}%</td></tr>`).join('') +
+                        `<tr class="bg-[#f8f7f4] border-b"><td class="px-4 py-3 font-medium text-[#8c7a6b]">Series A Investors</td><td class="px-4 py-3 text-right">0.0%</td><td class="px-4 py-3 text-right font-bold text-[#8c7a6b]">${((seriesAShares / totalPostShares) * 100).toFixed(1)}%</td></tr>`;
+                }
+
+                [exitValueEl, investmentAmountEl, targetReturnEl].forEach(el => el.addEventListener('input', calculateVC));
+                seriesASlider.addEventListener('input', updateCapTable);
+                calculateVC();
+                updateCapTable();
+            }
+            
+            function initializeAccordions() {
+                const accordionContainer = document.getElementById('accordion-container');
+                accordionContainer.addEventListener('click', function(e) {
+                    const header = e.target.closest('.accordion-header');
+                    if (!header) return;
+                    
+                    const accordionItem = header.parentElement;
+                    const content = accordionItem.querySelector('.accordion-content');
+                    const isOpening = header.getAttribute('aria-expanded') === 'false';
+
+                    this.querySelectorAll('.accordion-item').forEach(otherItem => {
+                        if (otherItem !== accordionItem) {
+                            otherItem.querySelector('.accordion-content').style.maxHeight = null;
+                            otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                        }
+                    });
+
+                    header.setAttribute('aria-expanded', isOpening);
+                    content.style.maxHeight = isOpening ? `${content.scrollHeight}px` : null;
+                });
+                
+                setTimeout(() => { 
+                    const firstHeader = accordionContainer.querySelector('.accordion-header');
+                    if(firstHeader) firstHeader.click(); 
+                }, 100);
+            }
+
+            function initializeNav() {
+                const sections = document.querySelectorAll('section'), navLinks = document.querySelectorAll('.nav-link'), mobileNav = document.getElementById('mobile-nav');
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+                            if (mobileNav.value !== `#${id}`) mobileNav.value = `#${id}`;
+                        }
+                    });
+                }, { rootMargin: '-40% 0px -60% 0px' });
+                sections.forEach(section => observer.observe(section));
+                mobileNav.addEventListener('change', (e) => {
+                    const targetElement = document.querySelector(e.target.value);
+                    if (targetElement) {
+                        const top = targetElement.offsetTop - 70; // 70px for header height
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                });
+            }
+
         });
     </script>
 </body>
