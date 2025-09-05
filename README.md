@@ -26,14 +26,4 @@ It includes company profile information, funding history, clinical trial data, i
 * Chart.js for data visualization
 * Vanilla JavaScript for interactivity
 
-### Local Setup
-
-1.  Clone the repository:
-    ```sh
-    git clone [https://github.com/f007kht/Osprey-Intel_AVT-Dashboard.git](https://github.com/f007kht/Osprey-Intel_AVT-Dashboard.git)
-    ```
-2.  Open the `Autus Dashboard.html` file directly in your web browser.
-
----
-
 Created by [José (f007kht)](https://github.com/f007kht)
