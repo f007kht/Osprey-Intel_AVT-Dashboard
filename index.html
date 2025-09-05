@@ -10,10 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-bg-light: #F6F7F9; /* Porcelain */
+            --color-text-primary: #1F2937; /* Slate 900 */
+            --color-text-secondary: #374151; /* Slate 800 */
+            --color-text-muted: #4B5563;
+            --color-border: #D1D5DB; /* Slate 300 equivalent */
+            --color-accent-primary: #1B5CFF; /* Sapphire */
+            --color-accent-primary-alt: #3E63F7;
+            --color-accent-secondary: #E0E7FF; /* Sapphire 100 for light backgrounds */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f7f4;
-            color: #383733;
+            background-color: var(--color-bg-light);
+            color: var(--color-text-primary);
         }
         .chart-container {
             position: relative;
@@ -33,12 +44,12 @@
             transition: color 0.3s, border-color 0.3s;
         }
         .nav-link.active {
-            color: #8c7a6b;
-            border-bottom-color: #8c7a6b;
+            color: var(--color-accent-primary);
+            border-bottom-color: var(--color-accent-primary);
         }
         .kpi-card {
             background-color: #ffffff;
-            border: 1px solid #e5e2dc;
+            border: 1px solid var(--color-border);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .kpi-card:hover {
@@ -46,14 +57,14 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         .interactive-tool {
-            background: linear-gradient(145deg, #ffffff, #f7f5f2);
+            background: linear-gradient(145deg, #ffffff, #F6F7F9);
         }
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
             width: 20px;
             height: 20px;
-            background: #8c7a6b;
+            background: var(--color-accent-primary);
             cursor: pointer;
             border-radius: 50%;
             border: 2px solid #fff;
@@ -62,7 +73,7 @@
         input[type="range"]::-moz-range-thumb {
             width: 20px;
             height: 20px;
-            background: #8c7a6b;
+            background: var(--color-accent-primary);
             cursor: pointer;
             border-radius: 50%;
             border: 2px solid #fff;
@@ -72,7 +83,7 @@
             width: 12px;
             height: 12px;
             border-style: solid;
-            border-color: #383733;
+            border-color: var(--color-text-primary);
             border-width: 0 2px 2px 0;
             display: inline-block;
             padding: 3px;
@@ -87,7 +98,7 @@
             transition: color 0.2s;
         }
         .source-link:hover {
-            color: #8c7a6b;
+            color: var(--color-accent-primary);
         }
         .summary-card ul {
             list-style-position: inside;
@@ -97,37 +108,37 @@
             margin-bottom: 0.5rem;
         }
         .summary-card li::marker {
-            color: #8c7a6b;
+            color: var(--color-accent-primary);
         }
     </style>
 </head>
 <body class="antialiased">
     
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-[var(--color-border)]">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-[#383733]">Autus Valve Technologies</h1>
+                    <h1 class="text-xl font-bold text-[var(--color-text-primary)]">Autus Valve Technologies</h1>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#profile" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Profile</a>
-                        <a href="#team" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Team</a>
-                        <a href="#device" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Device</a>
-                        <a href="#milestones" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Milestones</a>
-                        <a href="#funding" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Funding</a>
-                        <a href="#clinical" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Clinical & IP</a>
-                        <a href="#tools" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">VC Tools</a>
-                        <a href="#insights" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Insights</a>
+                        <a href="#profile" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[var(--color-accent-primary)] border-b-2 border-transparent">Profile</a>
+                        <a href="#team" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[var(--color-accent-primary)] border-b-2 border-transparent">Team</a>
+                        <a href="#device" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[var(--color-accent-primary)] border-b-2 border-transparent">Device</a>
+                        <a href="#milestones" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[var(--color-accent-primary)] border-b-2 border-transparent">Milestones</a>
+                        <a href="#market" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[var(--color-accent-primary)] border-b-2 border-transparent">Market & Funding</a>
+                        <a href="#clinical" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[var(--color-accent-primary)] border-b-2 border-transparent">Clinical & IP</a>
+                        <a href="#tools" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[var(--color-accent-primary)] border-b-2 border-transparent">VC Tools</a>
+                        <a href="#insights" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[var(--color-accent-primary)] border-b-2 border-transparent">Insights</a>
                     </div>
                 </div>
                  <div class="md:hidden">
-                    <select id="mobile-nav" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#8c7a6b] focus:border-[#8c7a6b] block w-full p-2.5">
+                    <select id="mobile-nav" class="bg-gray-50 border-[var(--color-border)] text-[var(--color-text-primary)] text-sm rounded-lg focus:ring-[var(--color-accent-primary)] focus:border-[var(--color-accent-primary)] block w-full p-2.5">
                         <option value="#profile">Profile</option>
                         <option value="#team">Team</option>
                         <option value="#device">Device</option>
                         <option value="#milestones">Milestones</option>
-                        <option value="#funding">Funding</option>
+                        <option value="#market">Market & Funding</option>
                         <option value="#clinical">Clinical & IP</option>
                         <option value="#tools">VC Tools</option>
                         <option value="#insights">Insights</option>
@@ -140,13 +151,13 @@
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
 
         <section id="profile" class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#383733] mb-2">Company Profile</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">An overview of Autus Valve Technologies, a medical device company developing innovative solutions for pediatric congenital heart disease.</p>
+            <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Company Profile</h2>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-8 max-w-3xl">An overview of Autus Valve Technologies, a medical device company developing innovative solutions for pediatric congenital heart disease.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="kpi-card p-6 rounded-lg flex flex-col">
                     <div class="flex-grow">
-                        <h3 class="text-sm font-medium text-gray-500">Description</h3>
-                        <p id="profile-description" class="mt-1 text-base text-gray-800"></p>
+                        <h3 class="text-sm font-medium text-[var(--color-text-muted)]">Description</h3>
+                        <p id="profile-description" class="mt-1 text-base text-[var(--color-text-secondary)]"></p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-gray-100">
                         <p id="profile-description-source" class="text-xs text-gray-400"></p>
@@ -154,9 +165,9 @@
                 </div>
                 <div class="kpi-card p-6 rounded-lg flex flex-col">
                     <div class="flex-grow">
-                        <h3 class="text-sm font-medium text-gray-500">Founded</h3>
-                        <p id="profile-founded-year" class="mt-1 text-3xl font-semibold text-[#8c7a6b]"></p>
-                        <p id="profile-founded-location" class="text-xs text-gray-500"></p>
+                        <h3 class="text-sm font-medium text-[var(--color-text-muted)]">Founded</h3>
+                        <p id="profile-founded-year" class="mt-1 text-3xl font-semibold text-[var(--color-accent-primary)]"></p>
+                        <p id="profile-founded-location" class="text-xs text-[var(--color-text-muted)]"></p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-gray-100">
                         <p id="profile-founded-source" class="text-xs text-gray-400"></p>
@@ -164,9 +175,9 @@
                 </div>
                 <div class="kpi-card p-6 rounded-lg flex flex-col">
                      <div class="flex-grow">
-                        <h3 class="text-sm font-medium text-gray-500">Leadership</h3>
-                        <p id="profile-leadership-name" class="mt-1 text-xl font-semibold text-gray-900"></p>
-                        <p id="profile-leadership-title" class="text-sm text-gray-500"></p>
+                        <h3 class="text-sm font-medium text-[var(--color-text-muted)]">Leadership</h3>
+                        <p id="profile-leadership-name" class="mt-1 text-xl font-semibold text-[var(--color-text-primary)]"></p>
+                        <p id="profile-leadership-title" class="text-sm text-[var(--color-text-secondary)]"></p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-gray-100">
                         <p id="profile-leadership-source" class="text-xs text-gray-400"></p>
@@ -174,9 +185,9 @@
                 </div>
                 <div class="kpi-card p-6 rounded-lg flex flex-col">
                     <div class="flex-grow">
-                        <h3 class="text-sm font-medium text-gray-500">Location</h3>
-                        <p id="profile-location-city" class="mt-1 text-xl font-semibold text-gray-900"></p>
-                        <p id="profile-location-detail" class="text-sm text-gray-500"></p>
+                        <h3 class="text-sm font-medium text-[var(--color-text-muted)]">Location</h3>
+                        <p id="profile-location-city" class="mt-1 text-xl font-semibold text-[var(--color-text-primary)]"></p>
+                        <p id="profile-location-detail" class="text-sm text-[var(--color-text-secondary)]"></p>
                     </div>
                      <div class="mt-4 pt-3 border-t border-gray-100">
                         <p id="profile-location-source" class="text-xs text-gray-400"></p>
@@ -186,15 +197,15 @@
         </section>
 
         <section id="team" class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#383733] mb-2">Founders & Team</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">The experienced leadership team driving the development of the Autus Valve.</p>
+            <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Founders & Team</h2>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-8 max-w-3xl">The experienced leadership team driving the development of the Autus Valve.</p>
             <div id="team-container" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             </div>
         </section>
         
         <section id="device" class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#383733] mb-2">Device Technology</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">A visual and technical overview of the Autus Valve, its core features, and supporting intellectual property.</p>
+            <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Device Technology</h2>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-8 max-w-3xl">A visual and technical overview of the Autus Valve, its core features, and supporting intellectual property.</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div class="space-y-8">
                     <div id="device-hero-container">
@@ -208,86 +219,95 @@
         </section>
 
         <section id="milestones" class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#383733] mb-2">Milestones & Inflection Points</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">A timeline of key achievements and projected clinical and regulatory milestones based on public data.</p>
+            <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Milestones & Inflection Points</h2>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-8 max-w-3xl">A timeline of key achievements and projected clinical and regulatory milestones based on public data.</p>
             <div id="milestones-container" class="space-y-6">
             </div>
         </section>
 
-        <section id="funding" class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#383733] mb-2">Funding Analysis</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">Capitalization history detailing grant awards and equity financing from public sources.</p>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-1 flex flex-col items-center justify-center bg-white p-6 rounded-lg border border-gray-200">
-                    <h3 class="text-xl font-semibold text-center mb-4">Funding by Type</h3>
-                    <div class="chart-container">
-                        <canvas id="fundingTypeChart"></canvas>
+        <section id="market" class="mb-12 md:mb-16">
+             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div id="funding-section">
+                        <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Funding & Market Analysis</h2>
+                        <p class="text-lg text-[var(--color-text-secondary)] mb-8 max-w-3xl">Capitalization history and interactive market potential analysis.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div id="funding-total-container" class="kpi-card p-6 rounded-lg flex flex-col justify-center items-center text-center">
+                            </div>
+                            <div class="kpi-card p-6 rounded-lg flex flex-col justify-center items-center">
+                                <h3 class="text-xl font-semibold text-center mb-4">Funding by Type</h3>
+                                <div class="chart-container">
+                                    <canvas id="fundingTypeChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="lg:col-span-2">
-                    <div id="funding-total-container" class="bg-white p-6 rounded-lg border border-gray-200 mb-8">
-                    </div>
-                    <div id="timeline-container" class="space-y-6">
+                <div class="lg:col-span-1">
+                     <div id="market-model-section">
+                        <h2 class="text-3xl font-bold text-[#383733] mb-2 opacity-0 pointer-events-none">Market Sizing Model</h2>
+                        <p class="text-lg text-gray-600 mb-8 max-w-3xl opacity-0 pointer-events-none">Interactive market potential analysis.</p>
+                        <div id="market-model-container"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="clinical" class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#383733] mb-2">Clinical Trial & Intellectual Property</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">Summary of the company's pivotal clinical study and associated patent portfolio.</p>
+            <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-2">Clinical Trial & Intellectual Property</h2>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-8 max-w-3xl">Summary of the company's pivotal clinical study and associated patent portfolio.</p>
             <div id="clinical-ip-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
             </div>
         </section>
         
         <section id="tools" class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#383733] mb-2">VC Analysis Toolkit</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">Interactive models for pre-money valuation analysis and capitalization table forecasting.</p>
+            <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-2">VC Analysis Toolkit</h2>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-8 max-w-3xl">Interactive models for pre-money valuation analysis and capitalization table forecasting.</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="interactive-tool p-6 rounded-lg border border-gray-200">
+                <div class="interactive-tool p-6 rounded-lg border border-[var(--color-border)]">
                     <h3 class="text-xl font-semibold mb-4">Pre-Money Valuation Model</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div>
-                            <label for="exitValue" class="text-sm font-medium text-gray-700 block mb-1">Terminal (Exit) Value ($M)</label>
-                            <input type="number" id="exitValue" value="100" class="w-full p-2 border border-gray-300 rounded-md">
+                            <label for="exitValue" class="text-sm font-medium text-[var(--color-text-secondary)] block mb-1">Terminal (Exit) Value ($M)</label>
+                            <input type="number" id="exitValue" value="100" class="w-full p-2 border border-[var(--color-border)] rounded-md">
                         </div>
                         <div>
-                            <label for="investmentAmount" class="text-sm font-medium text-gray-700 block mb-1">Investment Amount ($M)</label>
-                            <input type="number" id="investmentAmount" value="5" class="w-full p-2 border border-gray-300 rounded-md">
+                            <label for="investmentAmount" class="text-sm font-medium text-[var(--color-text-secondary)] block mb-1">Investment Amount ($M)</label>
+                            <input type="number" id="investmentAmount" value="5" class="w-full p-2 border border-[var(--color-border)] rounded-md">
                         </div>
                         <div>
-                            <label for="targetReturn" class="text-sm font-medium text-gray-700 block mb-1">Target Return (ROI)</label>
-                            <input type="number" id="targetReturn" value="10" class="w-full p-2 border border-gray-300 rounded-md">
+                            <label for="targetReturn" class="text-sm font-medium text-[var(--color-text-secondary)] block mb-1">Target Return (ROI)</label>
+                            <input type="number" id="targetReturn" value="10" class="w-full p-2 border border-[var(--color-border)] rounded-md">
                         </div>
                         <div>
-                            <label for="yearsToExit" class="text-sm font-medium text-gray-700 block mb-1">Years to Exit</label>
-                            <input type="number" id="yearsToExit" value="5" class="w-full p-2 border border-gray-300 rounded-md">
+                            <label for="yearsToExit" class="text-sm font-medium text-[var(--color-text-secondary)] block mb-1">Years to Exit</label>
+                            <input type="number" id="yearsToExit" value="5" class="w-full p-2 border border-[var(--color-border)] rounded-md">
                         </div>
                     </div>
-                    <div class="bg-[#f8f7f4] p-4 rounded-lg border border-dashed border-[#d4c8be]" aria-live="polite">
+                    <div class="bg-[var(--color-bg-light)] p-4 rounded-lg border border-dashed border-[var(--color-border)]" aria-live="polite">
                         <div class="flex justify-between items-center py-2">
                             <span class="font-medium">Required Ownership:</span>
-                            <span id="ownership" class="font-bold text-lg text-[#8c7a6b]">50.0%</span>
+                            <span id="ownership" class="font-bold text-lg text-[var(--color-accent-primary)]"></span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-t border-gray-200">
                             <span class="font-medium">Post-Money Valuation:</span>
-                            <span id="postMoney" class="font-bold text-lg text-gray-800">$10.0M</span>
+                            <span id="postMoney" class="font-bold text-lg text-[var(--color-text-primary)]"></span>
                         </div>
                         <div class="flex justify-between items-center py-2 border-t border-gray-200">
                             <span class="font-medium">Pre-Money Valuation:</span>
-                            <span id="preMoney" class="font-bold text-lg text-gray-800">$5.0M</span>
+                            <span id="preMoney" class="font-bold text-lg text-[var(--color-text-primary)]"></span>
                         </div>
                     </div>
                 </div>
-                <div class="interactive-tool p-6 rounded-lg border border-gray-200">
+                <div class="interactive-tool p-6 rounded-lg border border-[var(--color-border)]">
                     <h3 class="text-xl font-semibold mb-4">Pro Forma Cap Table</h3>
                     <div>
-                        <label for="seriesAInvestment" class="text-sm font-medium text-gray-700 block mb-1">Simulate Series A Investment ($M): <span id="seriesAValue" class="font-bold text-[#8c7a6b]">5</span></label>
-                        <input type="range" id="seriesAInvestment" min="1" max="20" value="5" step="0.5" class="w-full h-2 bg-[#d4c8be] rounded-lg appearance-none cursor-pointer">
+                        <label for="seriesAInvestment" class="text-sm font-medium text-[var(--color-text-secondary)] block mb-1">Simulate Series A Investment ($M): <span id="seriesAValue" class="font-bold text-[var(--color-accent-primary)]">5</span></label>
+                        <input type="range" id="seriesAInvestment" min="1" max="20" value="5" step="0.5" class="w-full h-2 bg-[var(--color-accent-secondary)] rounded-lg appearance-none cursor-pointer">
                     </div>
                     <div class="mt-4">
-                        <table class="w-full text-sm text-left text-gray-500">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <table class="w-full text-sm text-left text-[var(--color-text-secondary)]">
+                            <thead class="text-xs text-[var(--color-text-primary)] uppercase bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-4 py-2">Stakeholder</th>
                                     <th scope="col" class="px-4 py-2 text-right">Pre-Series A</th>
@@ -303,15 +323,15 @@
         </section>
 
         <section id="insights" class="mb-12 md:mb-16">
-            <h2 class="text-3xl font-bold text-[#383733] mb-2">VC Investment Insights</h2>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">Qualitative due diligence summary assessing the management team, market opportunity, and technology.</p>
+            <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-2">VC Investment Insights</h2>
+            <p class="text-lg text-[var(--color-text-secondary)] mb-8 max-w-3xl">Qualitative due diligence summary assessing the management team, market opportunity, and technology.</p>
             <div id="accordion-container" class="space-y-4">
             </div>
         </section>
     </main>
     
-    <footer class="bg-white border-t border-gray-200">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-xs text-gray-500">
+    <footer class="bg-white border-t border-[var(--color-border)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-xs text-[var(--color-text-muted)]">
             <p>&copy; 2025 Autus Valve Technologies Analysis. For informational purposes only.</p>
             <p>Data synthesized from public SEC filings and PitchBook data platform.</p>
         </div>
@@ -329,15 +349,17 @@
               },
               team: {
                 founders: [
-                  { name: "Sophie-Charlotte Hofferberth, MD", image: "images/hofferberth.jpg", bio: "Physician-scientist and inventor of the Autus Valve technology. Dr. Hofferberth serves as the CEO and Study Director, bringing deep clinical and technical expertise to the company's leadership." },
-                  { name: "Pedro J. del Nido, MD", image: "images/del_nido.jpg", bio: "Co-inventor and Professor of Surgery at Harvard Medical School. A world-renowned pediatric cardiac surgeon, providing invaluable clinical guidance." }
+                  { name: "Dr. Hofferberth", image: "images/hofferberth.jpg", bio: "Dr. Hofferberth co-founded Autus Valve after conceiving and designing the company's novel technology as a post-doctoral fellow at Boston Children's Hospital. As CMO, she led all pre-clinical studies, secured FDA approval for the first-in-human implant, and achieved both Breakthrough Device Designation and unconditional FDA approval for the U.S. Pivotal Study. She has taken a leave from her cardiothoracic surgery residency at Harvard Medical School to lead the company." },
+                  { name: "Dr. del Nido", image: "images/del_nido.jpg", bio: "Dr. del Nido is Chairman of Cardiac Surgery at Boston Children's Hospital and the William E. Lads Professor of Surgery at Harvard Medical School. A renowned surgeon and serial entrepreneur, he is the inventor of del Nido Cardioplegia, a global standard for heart preservation in open-heart surgery. He has co-founded multiple medical device companies and holds 28 patents, underscoring his extensive track record in medical innovation." },
+                  { name: "Dr. Edelman", image: "images/edelman.jpg", bio: "Dr. Edelman is a distinguished professor at both MIT and Harvard Medical School. A pioneer in vascular biology, he has developed critical clinical devices, including endovascular implants and cardiovascular support systems. He directs the Harvard-MIT Biomedical Engineering Center, has mentored hundreds of leaders in the field, and is a fellow of multiple National Academies, highlighting his immense influence on translational research and medical innovation." }
                 ],
                 management: [
-                  { name: "David Hoganson, MD", image: "images/heyninck-jantz.jpg", title: "Chief Medical Officer", bio: "Leads clinical strategy and regulatory affairs, leveraging extensive experience in pediatric cardiac surgery and medical device development." }
+                  { name: "Christine Heyninck-Jantz, BS, MBA", title: "Sr. Vice President, Product Development", image: "images/heyninck-jantz.jpg", bio: "Christine is a veteran in transcatheter heart valve development with over 20 years of experience at Edwards and Medtronic. As VP of R&D at Edwards, she pioneered the development and commercialization of the world's first transcatheter valve and successfully launched the Alterra Adaptive Prestent and Sapien 3 Pulmonic Delivery System. She now leads product development and manufacturing at Autus." }
                 ],
-                contact: {
-                  address: ["65 Park Drive, Apt. 4", "Boston, MA 02215", "United States"],
-                  email: "info@autusvalve.com"
+                contact: { 
+                    address: ["75 Arlington Street", "5th Floor", "Boston, MA 02116", "United States"], 
+                    email: "inquiries@autusvalve.com",
+                    website: "https://www.autusvalve.com/"
                 }
               },
               deviceDetails: {
@@ -369,22 +391,29 @@
                 ]
               },
               milestones: [
-                { date: "2019-01-01", title: "Company Founded", description: "Incorporated in Delaware.", type: "past" },
-                { date: "2021-01-01", title: "Grant Funding: $299,994", description: "From U.S. Dept. of Health and Human Services (STTR Phase I).", type: "past" },
-                { date: "2021-02-26", title: "Angel Round: $25,000", description: "Equity investment from undisclosed investors (SEC Form D).", type: "past" },
-                { date: "2021-03-26", title: "Grant Funding: $50,000", description: "From UCSF-Stanford Pediatric Device Consortium.", type: "past" },
-                { date: "2024-02-05", title: "Pivotal Study Start", description: "Began recruiting for the Autus Valve Pivotal Study (NCT05006404).", type: "past" },
-                { date: "2026-08-01", title: "Est. Primary Completion", description: "Estimated date for primary data collection for the pivotal study.", type: "future" },
-                { date: "2026-10-01", title: "PMA Submission Target", description: "Projected submission of Pre-Market Approval (PMA) application to the FDA.", type: "future" },
-                { date: "2027-08-01", title: "Potential FDA Approval", description: "Projected timeline for potential market approval based on standard review cycles.", type: "future" },
-                { date: "2036-02-01", title: "Est. Study Completion", description: "Final data collection for long-term (10-year) patient follow-up.", type: "future" }
+                { date: "2019-01-01", title: "Company Founded", description: "Incorporated in Delaware.", type: "past", sourceUrl: "https://www.sec.gov/Archives/edgar/data/1849012/000184901221000001/xslFormDX01/primary_doc.xml" },
+                { date: "2021-01-01", title: "Grant Funding: $299,994", description: "From U.S. Dept. of Health and Human Services (STTR Phase I).", type: "past", sourceUrl: "https://legacy.www.sbir.gov/sbirsearch/detail/2185683" },
+                { date: "2021-02-26", title: "Angel Round: $25,000", description: "Equity investment from undisclosed investors (SEC Form D).", type: "past", sourceUrl: "https://www.sec.gov/Archives/edgar/data/1849012/000184901221000001/xslFormDX01/primary_doc.xml" },
+                { date: "2021-03-26", title: "Grant Funding: $50,000", description: "From UCSF-Stanford Pediatric Device Consortium.", type: "past", sourceUrl: "https://pediatricdeviceconsortium.org/new-page-2" },
+                { date: "2024-02-05", title: "Pivotal Study Start", description: "Began recruiting for the Autus Valve Pivotal Study (NCT05006404).", type: "past", sourceUrl: "https://clinicaltrials.gov/study/NCT05006404" },
+                { date: "2026-08-01", title: "Est. Primary Completion", description: "Estimated date for primary data collection for the pivotal study.", type: "future", sourceUrl: null },
+                { date: "2026-10-01", title: "PMA Submission Target", description: "Projected submission of Pre-Market Approval (PMA) application to the FDA.", type: "future", sourceUrl: null },
+                { date: "2027-08-01", title: "Potential FDA Approval", description: "Projected timeline for potential market approval based on standard review cycles.", type: "future", sourceUrl: null },
+                { date: "2036-02-01", title: "Est. Study Completion", description: "Final data collection for long-term (10-year) patient follow-up.", type: "future", sourceUrl: null }
               ],
+              marketModel: {
+                annualNewCases: 6300,
+                totalPatientPopulation: 110000,
+                initialPenetration: 10, // %
+                initialAsp: 35000, // $
+                initialCagr: 5 // %
+              },
               funding: {
                 totalRaised: 374994,
                 rounds: [
-                    { date: "2021-03-26", type: "Grant", amount: 50000, details: "From UCSF-Stanford Pediatric Device Consortium.", source: "PitchBook", sourceUrl: "https://pediatricdeviceconsortium.org/new-page-2" },
+                    { date: "2021-03-26", type: "Grant", amount: 50000, details: "From UCSF-Stanford Pediatric Device Consortium.", source: "UCSF-Stanford PDC", sourceUrl: "https://pediatricdeviceconsortium.org/new-page-2" },
                     { date: "2021-02-26", type: "Angel", amount: 25000, details: "Equity investment from undisclosed investors.", source: "SEC Form D", sourceUrl: "https://www.sec.gov/Archives/edgar/data/1849012/000184901221000001/xslFormDX01/primary_doc.xml" },
-                    { date: "2021-01-01", type: "Grant", amount: 299994, details: "From U.S. Dept. of Health and Human Services (STTR Phase I).", source: "PitchBook", sourceUrl: "https://legacy.www.sbir.gov/sbirsearch/detail/2185683" }
+                    { date: "2021-01-01", type: "Grant", amount: 299994, details: "From U.S. Dept. of Health and Human Services (STTR Phase I).", source: "HHS STTR Program", sourceUrl: "https://legacy.www.sbir.gov/sbirsearch/detail/2185683" }
                 ]
               },
               clinicalAndIp: {
@@ -405,24 +434,23 @@
               },
                insights: [
                  {
-                    "title": "Due Diligence Assessment: Autus Valve Technologies",
+                    "title": "Due Diligence Assessment",
                     "content": {
-                        "intro": "Venture capital due diligence focuses on three core pillars: the team, the market, and the product. For a pre-revenue company like Autus Valve, the strength of the management team is often the most critical factor, as they must navigate immense scientific and commercial challenges.",
+                        "intro": "Venture capital due diligence focuses on three core pillars: the team, the market, and the product. For a pre-revenue company like Autus Valve, the strength of the management team is often the most critical factor.",
                         "points": [
-                            { "heading": "1. Management Team", "text": "The team is led by CEO Sophie-Charlotte Hofferberth, MD. Her medical background is a significant asset, as evidenced by her dual role as the Study Director for the company's pivotal clinical trial. This indicates deep technical and clinical expertise at the leadership level, which is crucial for credibility with investors, regulators, and clinical partners in the medtech space." },
-                            { "heading": "2. Market Opportunity", "text": "Autus Valve is targeting the pediatric congenital heart disease market. The primary challenge for patients is the need for repeated, high-risk open-heart surgeries as they outgrow their initial valve implants. Autus aims to solve this critical unmet need. The viability of this market is validated by significant VC investment in similar companies. For example, Xeltis, which also develops restorative cardiovascular devices, has raised nearly $200 million. Other competitors like Polyvascular and Starlight Cardiovascular are also VC-backed, demonstrating a strong and continued investor appetite for innovative solutions in this field." },
-                            { "heading": "3. Product & Technology", "text": "The company's core product is the Autus Size-Adjustable Pulmonary Valve, a fully synthetic implant. Its key technological differentiator is its ability to be expanded via transcatheter balloon dilation as the child grows, potentially eliminating the need for subsequent surgeries. The company has progressed beyond the concept phase and is actively recruiting for its 'Autus Valve Pivotal Study' as of early 2024, a major de-risking milestone that moves the product closer to regulatory review and commercialization." }
+                            { "heading": "1. Management Team", "text": "The team is led by CEO Sophie-Charlotte Hofferberth, MD. Her medical background is a significant asset, as evidenced by her dual role as the Study Director for the company's pivotal clinical trial. This indicates deep technical and clinical expertise at the leadership level." },
+                            { "heading": "2. Market Opportunity", "text": "Autus Valve is targeting the pediatric congenital heart disease market. The primary challenge for patients is the need for repeated, high-risk open-heart surgeries as they outgrow their initial valve implants. The viability of this market is validated by significant VC investment in similar companies." },
+                            { "heading": "3. Product & Technology", "text": "The company's core product is the Autus Size-Adjustable Pulmonary Valve. Its key technological differentiator is its ability to be expanded via transcatheter balloon dilation as the child grows, potentially eliminating the need for subsequent surgeries. The company is actively recruiting for its pivotal study, a major de-risking milestone." }
                         ]
                     }
                 },
-                 {
-                    "title": "Broader Medtech & VC Market Context",
+                {
+                    "title": "News & Updates",
                     "content": {
-                        "intro": "Understanding the broader investment landscape is crucial for assessing a startup's potential. According to PitchBook's Q1 2025 preliminary data, the venture capital market continues to seek out capital-efficient companies with strong technical moats and clear market needs, especially in recession-resilient sectors like healthcare.",
+                        "intro": "Recent developments and announcements from the company and the broader market.",
                         "points": [
-                            { "heading": "Investor Focus", "text": "Medtech investors like Broadview Ventures specifically target companies with novel solutions in cardiovascular health, validating the investment thesis behind firms like Autus Valve." },
-                            { "heading": "Funding Validation", "text": "The pediatric cardiovascular device space has seen consistent funding activity. Competitors such as Annoviant, Polyvascular, and Starlight Cardiovascular have all successfully secured grant funding and early-stage VC rounds, indicating a healthy ecosystem for innovation." },
-                            { "heading": "Exit Landscape", "text": "Mature companies in the broader restorative cardiovascular field, like the heavily-funded Xeltis (raising nearly $200M), signal a strong potential for high-value M&A exits. Acquirers are often large medical device corporations seeking to add innovative, high-growth products to their portfolios." }
+                             { "heading": "Feb 5, 2024 - Clinical Trial Launch", "text": "Autus Valve Technologies announced the initiation of its pivotal clinical study (NCT05006404) and has begun recruiting patients." },
+                             { "heading": "Oct 15, 2023 - FDA Breakthrough Device Designation", "text": "The FDA granted Breakthrough Device Designation to the Autus Valve, expediting its review process and acknowledging its potential to provide a more effective treatment for a life-threatening pediatric condition." }
                         ]
                     }
                 }
@@ -440,6 +468,7 @@
             populateFundingSection();
             populateClinicalIpSection();
             populateInsights();
+            initializeMarketModel();
             initializeVcTools();
             initializeNav();
 
@@ -466,29 +495,29 @@
                 let foundersHtml = team.founders.map(p => `
                     <div class="flex items-start space-x-6">
                         <img class="h-28 w-28 rounded-full object-cover border-4 border-white shadow-md flex-shrink-0" src="${p.image}" alt="Headshot of ${p.name}">
-                        <div><h4 class="font-bold text-lg">${p.name}</h4><p class="text-sm text-gray-700">${p.bio}</p></div>
+                        <div><h4 class="font-bold text-lg">${p.name}</h4><p class="text-sm text-[var(--color-text-secondary)]">${p.bio}</p></div>
                     </div>`).join('');
                 
                 let managementHtml = team.management.map(p => `
                     <div class="kpi-card p-6 rounded-lg text-center">
                         <img class="h-32 w-32 rounded-full object-cover border-4 border-white shadow-lg mb-4 mx-auto" src="${p.image}" alt="Headshot of ${p.name}">
                         <h4 class="font-bold text-lg">${p.name}</h4>
-                        <p class="text-sm font-medium text-gray-500 mb-2">${p.title}</p>
+                        <p class="text-sm font-medium text-[var(--color-text-muted)] mb-2">${p.title}</p>
                     </div>`).join('');
 
-                const contactHtml = `<div class="kpi-card p-6 rounded-lg"><h4 class="font-bold text-lg mb-2">Contact</h4><p class="text-sm text-gray-700">${team.contact.address.join('<br>')}</p><a href="mailto:${team.contact.email}" class="text-sm text-gray-700 underline hover:text-[#8c7a6b] transition-colors mt-2 inline-block">${team.contact.email}</a></div>`;
+                const contactHtml = `<div class="kpi-card p-6 rounded-lg"><h4 class="font-bold text-lg mb-2">Contact</h4><p class="text-sm text-[var(--color-text-secondary)]">${team.contact.address.join('<br>')}</p><a href="mailto:${team.contact.email}" class="text-sm text-[var(--color-text-secondary)] underline hover:text-[var(--color-accent-primary)] transition-colors mt-2 inline-block">${team.contact.email}</a><br><a href="${team.contact.website}" target="_blank" rel="noopener noreferrer" class="text-sm text-[var(--color-text-secondary)] underline hover:text-[var(--color-accent-primary)] transition-colors mt-1 inline-block">Company Website</a></div>`;
 
                 container.innerHTML = `<div class="lg:col-span-2 space-y-8">${foundersHtml}</div><div class="space-y-8">${managementHtml}${contactHtml}</div>`;
             }
 
             function populateDeviceSection() {
                 const device = dashboardData.deviceDetails;
-                document.getElementById('device-hero-container').innerHTML = `<div class="kpi-card p-6 rounded-lg summary-card"><img src="${device.heroImage}" alt="Autus Valve Product Render" class="rounded-md mb-4 shadow"><h3 class="text-2xl font-bold mb-4 text-[#8c7a6b]">${device.summaryTitle}</h3><ul class="space-y-2 text-gray-700 list-disc">${device.features.map(f => `<li>${f}</li>`).join('')}</ul></div>`;
-                document.getElementById('device-video-container').innerHTML = `<div class="aspect-w-16 aspect-h-9"><iframe src="https://www.youtube.com/embed/${device.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg shadow-lg"></iframe></div>`;
+                document.getElementById('device-hero-container').innerHTML = `<div class="kpi-card p-6 rounded-lg summary-card"><img src="${device.heroImage}" alt="Autus Valve Product Render" class="rounded-md mb-4 shadow"><h3 class="text-2xl font-bold mb-4 text-[var(--color-accent-primary)]">${device.summaryTitle}</h3><ul class="space-y-2 text-[var(--color-text-secondary)] list-disc">${device.features.map(f => `<li>${f}</li>`).join('')}</ul></div>`;
+                document.getElementById('device-video-container').innerHTML = `<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;"><iframe src="https://www.youtube.com/embed/${device.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>`;
                 document.getElementById('device-exhibits-container').innerHTML = device.patentExhibits.map(e => `
                     <div class="kpi-card rounded-lg overflow-hidden">
                         <img src="${e.imageSrc}" alt="${e.title}" class="w-full h-auto object-cover">
-                        <div class="p-6"><h4 class="font-bold text-lg">${e.title}</h4><p class="text-sm text-gray-700 mt-2">${e.caption}</p><p class="text-xs text-gray-400 mt-4 border-t pt-2">Source: ${e.source}</p></div>
+                        <div class="p-6"><h4 class="font-bold text-lg">${e.title}</h4><p class="text-sm text-[var(--color-text-secondary)] mt-2">${e.caption}</p><p class="text-xs text-gray-400 mt-4 border-t pt-2">Source: ${e.source}</p></div>
                     </div>`).join('');
             }
 
@@ -498,15 +527,16 @@
                 
                 let milestonesHtml = milestones.map(item => {
                     const isFuture = item.type === 'future';
-                    const iconColor = isFuture ? 'bg-blue-400' : 'bg-[#8c7a6b]';
-                    const textColor = isFuture ? 'text-blue-600' : 'text-gray-500';
+                    const iconColor = isFuture ? 'bg-blue-400' : 'bg-[var(--color-accent-primary)]';
+                    const textColor = isFuture ? 'text-blue-600' : 'text-[var(--color-text-muted)]';
+                    const descriptionHtml = item.sourceUrl ? `<a href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer" class="source-link">${item.description}</a>` : item.description;
 
                     return `
-                        <div class="relative border-l-2 ${isFuture ? 'border-blue-200' : 'border-[#d4c8be]'} ml-4 pl-8 py-2">
+                        <div class="relative border-l-2 ${isFuture ? 'border-blue-200' : 'border-[var(--color-accent-secondary)]'} ml-4 pl-8 py-2">
                             <div class="absolute -left-[11px] top-4 w-5 h-5 ${iconColor} rounded-full border-4 border-white"></div>
-                            <p class="text-sm ${textColor}">${new Date(item.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
+                            <p class="text-sm font-medium ${textColor}">${new Date(item.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
                             <h4 class="font-semibold">${item.title}</h4>
-                            <p class="text-sm text-gray-700">${item.description}</p>
+                            <p class="text-sm text-[var(--color-text-secondary)]">${descriptionHtml}</p>
                         </div>
                     `;
                 }).join('');
@@ -515,16 +545,7 @@
 
             function populateFundingSection() {
                  const funding = dashboardData.funding;
-                document.getElementById('funding-total-container').innerHTML = `<h3 class="text-sm font-medium text-gray-500">Total Known Funding</h3><p class="text-5xl font-bold text-[#8c7a6b]">${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(funding.totalRaised)}</p><p class="text-xs text-gray-500 mt-1">Sum of all identified financing events.</p>`;
-                
-                const timelineContainer = document.getElementById('timeline-container');
-                timelineContainer.innerHTML = '<h3 class="text-xl font-semibold">Funding Rounds & Milestones</h3>' + funding.rounds.sort((a, b) => new Date(b.date) - new Date(a.date)).map(round => `
-                    <div class="relative border-l-2 border-[#d4c8be] ml-4 pl-8 py-2">
-                        <div class="absolute -left-[11px] top-4 w-5 h-5 bg-[#8c7a6b] rounded-full border-4 border-white"></div>
-                        <p class="text-sm text-gray-500">${new Date(round.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                        <h4 class="font-semibold">${round.type} Round: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(round.amount)}</h4>
-                        <p class="text-sm text-gray-700">${round.details} (Source: <a href="${round.sourceUrl}" target="_blank" class="source-link">${round.source}</a>)</p>
-                    </div>`).join('');
+                document.getElementById('funding-total-container').innerHTML = `<h3 class="text-sm font-medium text-[var(--color-text-muted)]">Total Known Funding</h3><p class="text-5xl font-bold text-[var(--color-accent-primary)]">${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(funding.totalRaised)}</p><p class="text-xs text-[var(--color-text-muted)] mt-1">Sum of all identified financing events.</p>`;
                 
                 const fundingByType = funding.rounds.reduce((acc, round) => {
                     const type = round.type === 'Angel' ? 'Angel/Equity' : 'Grant';
@@ -534,29 +555,87 @@
 
                 new Chart(document.getElementById('fundingTypeChart').getContext('2d'), {
                     type: 'doughnut',
-                    data: { labels: Object.keys(fundingByType), datasets: [{ data: Object.values(fundingByType), backgroundColor: ['#8c7a6b', '#d4c8be'], borderColor: '#ffffff', borderWidth: 4 }] },
+                    data: { labels: Object.keys(fundingByType), datasets: [{ data: Object.values(fundingByType), backgroundColor: ['#1B5CFF', '#A9C1FF'], borderColor: '#ffffff', borderWidth: 4 }] },
                     options: { responsive: true, maintainAspectRatio: false, cutout: '70%', plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => `${c.label}: ${c.formattedValue}` } } } }
                 });
             }
+            function initializeMarketModel() {
+                const model = dashboardData.marketModel;
+                const container = document.getElementById('market-model-container');
+                container.innerHTML = `
+                    <div class="interactive-tool p-6 rounded-lg border border-[var(--color-border)] h-full">
+                        <h3 class="text-xl font-semibold mb-4">Market Potential Model (US)</h3>
+                        <div class="space-y-4 text-sm">
+                            <div>
+                                <label for="market-penetration" class="font-medium text-[var(--color-text-secondary)]">Market Penetration (%): <span id="market-penetration-value" class="font-bold text-[var(--color-accent-primary)]"></span></label>
+                                <input type="range" id="market-penetration" min="1" max="50" value="${model.initialPenetration}" class="w-full h-2 bg-[var(--color-accent-secondary)] rounded-lg appearance-none cursor-pointer">
+                            </div>
+                            <div>
+                                <label for="market-asp" class="font-medium text-[var(--color-text-secondary)]">Average Selling Price (ASP):</label>
+                                <input type="number" id="market-asp" value="${model.initialAsp}" step="500" class="w-full p-2 border border-[var(--color-border)] rounded-md">
+                            </div>
+                             <div>
+                                <label for="market-cagr" class="font-medium text-[var(--color-text-secondary)]">Market Growth Rate (CAGR %): <span id="market-cagr-value" class="font-bold text-[var(--color-accent-primary)]"></span></label>
+                                <input type="range" id="market-cagr" min="0" max="20" value="${model.initialCagr}" class="w-full h-2 bg-[var(--color-accent-secondary)] rounded-lg appearance-none cursor-pointer">
+                            </div>
+                        </div>
+                        <div class="bg-[var(--color-bg-light)] p-4 mt-4 rounded-lg border border-dashed border-[var(--color-border)]" aria-live="polite">
+                            <div class="py-2"><span class="font-medium">Annual Market:</span><span id="market-annual" class="font-bold text-lg text-[var(--color-text-primary)] float-right"></span></div>
+                            <div class="py-2 border-t border-gray-200"><span class="font-medium">Total Addressable Market (TAM):</span><span id="market-tam" class="font-bold text-lg text-[var(--color-text-primary)] float-right"></span></div>
+                            <div class="py-2 border-t border-gray-200"><span class="font-medium">5-Year Projected Annual Market:</span><span id="market-projected" class="font-bold text-lg text-[var(--color-text-primary)] float-right"></span></div>
+                        </div>
+                    </div>
+                `;
+
+                const penetrationSlider = document.getElementById('market-penetration');
+                const aspInput = document.getElementById('market-asp');
+                const cagrSlider = document.getElementById('market-cagr');
+                const penetrationValueEl = document.getElementById('market-penetration-value');
+                const cagrValueEl = document.getElementById('market-cagr-value');
+                const annualEl = document.getElementById('market-annual');
+                const tamEl = document.getElementById('market-tam');
+                const projectedEl = document.getElementById('market-projected');
+
+                function calculateMarketSize() {
+                    const penetration = parseFloat(penetrationSlider.value);
+                    const asp = parseFloat(aspInput.value);
+                    const cagr = parseFloat(cagrSlider.value);
+
+                    penetrationValueEl.textContent = `${penetration}%`;
+                    cagrValueEl.textContent = `${cagr}%`;
+
+                    const annualMarket = model.annualNewCases * (penetration / 100) * asp;
+                    const totalMarket = model.totalPatientPopulation * (penetration / 100) * asp;
+                    const projectedMarket = annualMarket * Math.pow(1 + (cagr / 100), 5);
+
+                    annualEl.textContent = `$${(annualMarket / 1e6).toFixed(1)}M`;
+                    tamEl.textContent = `$${(totalMarket / 1e9).toFixed(2)}B`;
+                    projectedEl.textContent = `$${(projectedMarket / 1e6).toFixed(1)}M`;
+                }
+
+                [penetrationSlider, aspInput, cagrSlider].forEach(el => el.addEventListener('input', calculateMarketSize));
+                calculateMarketSize();
+            }
+
 
             function populateClinicalIpSection() {
                 const data = dashboardData.clinicalAndIp;
                 document.getElementById('clinical-ip-container').innerHTML = `
                     <div class="kpi-card p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-[#8c7a6b]">Pivotal Clinical Trial</h3>
+                        <h3 class="text-xl font-semibold mb-4 text-[var(--color-accent-primary)]">Pivotal Clinical Trial</h3>
                         <div class="space-y-3 text-sm">
-                            <p><strong class="font-medium text-gray-800">Name:</strong> ${data.trial.name}</p>
-                            <p><strong class="font-medium text-gray-800">Identifier:</strong> <a href="${data.trial.source_url}" target="_blank" class="source-link">${data.trial.identifier}</a></p>
-                            <p><strong class="font-medium text-gray-800">Status:</strong> ${data.trial.status}</p>
-                            <p><strong class="font-medium text-gray-800">Enrollment:</strong> ${data.trial.enrollment}</p>
+                            <p><strong class="font-medium text-[var(--color-text-primary)]">Name:</strong> ${data.trial.name}</p>
+                            <p><strong class="font-medium text-[var(--color-text-primary)]">Identifier:</strong> <a href="${data.trial.source_url}" target="_blank" class="source-link">${data.trial.identifier}</a></p>
+                            <p><strong class="font-medium text-[var(--color-text-primary)]">Status:</strong> ${data.trial.status}</p>
+                            <p><strong class="font-medium text-[var(--color-text-primary)]">Enrollment:</strong> ${data.trial.enrollment}</p>
                             <p class="mt-2">${data.trial.purpose}</p>
                         </div>
                     </div>
                     <div class="kpi-card p-6 rounded-lg">
-                        <h3 class="text-xl font-semibold mb-4 text-[#8c7a6b]">Intellectual Property</h3>
+                        <h3 class="text-xl font-semibold mb-4 text-[var(--color-accent-primary)]">Intellectual Property</h3>
                          <div class="space-y-3 text-sm">
                             <p>${data.ip.summary}</p>
-                            <p><strong class="font-medium text-gray-800">Granted Patents:</strong> ${data.ip.patents.join(', ')}</p>
+                            <p><strong class="font-medium text-[var(--color-text-primary)]">Granted Patents:</strong> ${data.ip.patents.join(', ')}</p>
                             <p class="text-xs text-gray-400 mt-4 border-t pt-2">Source: ${data.ip.source}</p>
                         </div>
                     </div>`;
@@ -564,18 +643,18 @@
              function populateInsights() {
                 const container = document.getElementById('accordion-container');
                 container.innerHTML = dashboardData.insights.map((item, index) => {
-                    let contentHtml = `<p class="text-gray-600 mb-4">${item.content.intro}</p>`;
+                    let contentHtml = `<p class="text-[var(--color-text-secondary)] mb-4">${item.content.intro}</p>`;
                     if(item.content.points) {
-                        contentHtml += item.content.points.map(p => `<h4 class="font-semibold text-lg text-gray-800 mt-4 mb-2">${p.heading}</h4><p class="text-gray-600">${p.text}</p>`).join('');
+                        contentHtml += item.content.points.map(p => `<h4 class="font-semibold text-lg text-[var(--color-text-primary)] mt-4 mb-2">${p.heading}</h4><p class="text-[var(--color-text-secondary)]">${p.text}</p>`).join('');
                     }
                     return `
-                        <div class="accordion-item bg-white border border-gray-200 rounded-lg">
+                        <div class="accordion-item bg-white border border-[var(--color-border)] rounded-lg">
                             <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold" aria-expanded="false">
                                 <span>${item.title}</span>
                                 <span class="accordion-icon"></span>
                             </button>
                             <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                <div class="p-5 border-t border-gray-200">${contentHtml}</div>
+                                <div class="p-5 border-t border-[var(--color-border)]">${contentHtml}</div>
                             </div>
                         </div>`;
                 }).join('');
@@ -603,8 +682,8 @@
                     seriesAValueEl.textContent = seriesASlider.value;
                     const seriesAShares = seriesAInvestment / (preMoneyValuation / totalPreShares), totalPostShares = totalPreShares + seriesAShares;
                     capTableBodyEl.innerHTML = Object.entries(initialCapTable).map(([stakeholder, data]) => `
-                        <tr class="bg-white border-b"><td class="px-4 py-3 font-medium text-gray-900">${stakeholder}</td><td class="px-4 py-3 text-right">${(data.percentage * 100).toFixed(1)}%</td><td class="px-4 py-3 text-right font-semibold text-gray-800">${((data.shares / totalPostShares) * 100).toFixed(1)}%</td></tr>`).join('') +
-                        `<tr class="bg-[#f8f7f4] border-b"><td class="px-4 py-3 font-medium text-[#8c7a6b]">Series A Investors</td><td class="px-4 py-3 text-right">0.0%</td><td class="px-4 py-3 text-right font-bold text-[#8c7a6b]">${((seriesAShares / totalPostShares) * 100).toFixed(1)}%</td></tr>`;
+                        <tr class="bg-white border-b"><td class="px-4 py-3 font-medium text-[var(--color-text-primary)]">${stakeholder}</td><td class="px-4 py-3 text-right">${(data.percentage * 100).toFixed(1)}%</td><td class="px-4 py-3 text-right font-semibold text-[var(--color-text-primary)]">${((data.shares / totalPostShares) * 100).toFixed(1)}%</td></tr>`).join('') +
+                        `<tr class="bg-[var(--color-bg-light)] border-b"><td class="px-4 py-3 font-medium text-[var(--color-accent-primary)]">Series A Investors</td><td class="px-4 py-3 text-right">0.0%</td><td class="px-4 py-3 text-right font-bold text-[var(--color-accent-primary)]">${((seriesAShares / totalPostShares) * 100).toFixed(1)}%</td></tr>`;
                 }
 
                 [exitValueEl, investmentAmountEl, targetReturnEl].forEach(el => el.addEventListener('input', calculateVC));
@@ -665,3 +744,4 @@
     </script>
 </body>
 </html>
+
