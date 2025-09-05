@@ -68,7 +68,7 @@
             border: 2px solid #fff;
             box-shadow: 0 0 5px rgba(0,0,0,0.2);
         }
-        .accordion-icon {
+         .accordion-icon {
             width: 12px;
             height: 12px;
             border-style: solid;
@@ -114,6 +114,7 @@
                         <a href="#profile" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Profile</a>
                         <a href="#team" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Team</a>
                         <a href="#device" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Device</a>
+                        <a href="#milestones" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Milestones</a>
                         <a href="#funding" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Funding</a>
                         <a href="#clinical" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">Clinical & IP</a>
                         <a href="#tools" class="nav-link px-3 py-2 text-sm font-medium text-gray-600 hover:text-[#8c7a6b] border-b-2 border-transparent">VC Tools</a>
@@ -125,6 +126,7 @@
                         <option value="#profile">Profile</option>
                         <option value="#team">Team</option>
                         <option value="#device">Device</option>
+                        <option value="#milestones">Milestones</option>
                         <option value="#funding">Funding</option>
                         <option value="#clinical">Clinical & IP</option>
                         <option value="#tools">VC Tools</option>
@@ -187,21 +189,29 @@
             <h2 class="text-3xl font-bold text-[#383733] mb-2">Founders & Team</h2>
             <p class="text-lg text-gray-600 mb-8 max-w-3xl">The experienced leadership team driving the development of the Autus Valve.</p>
             <div id="team-container" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                </div>
+            </div>
         </section>
-
+        
         <section id="device" class="mb-12 md:mb-16">
             <h2 class="text-3xl font-bold text-[#383733] mb-2">Device Technology</h2>
             <p class="text-lg text-gray-600 mb-8 max-w-3xl">A visual and technical overview of the Autus Valve, its core features, and supporting intellectual property.</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div class="space-y-8">
                     <div id="device-hero-container">
-                        </div>
+                    </div>
                     <div id="device-video-container" class="rounded-lg overflow-hidden shadow-lg">
-                        </div>
+                    </div>
                 </div>
                 <div id="device-exhibits-container" class="space-y-8">
-                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="milestones" class="mb-12 md:mb-16">
+            <h2 class="text-3xl font-bold text-[#383733] mb-2">Milestones & Inflection Points</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-3xl">A timeline of key achievements and projected clinical and regulatory milestones based on public data.</p>
+            <div id="milestones-container" class="space-y-6">
+                <!-- Populated by JavaScript -->
             </div>
         </section>
 
@@ -217,9 +227,9 @@
                 </div>
                 <div class="lg:col-span-2">
                     <div id="funding-total-container" class="bg-white p-6 rounded-lg border border-gray-200 mb-8">
-                        </div>
+                    </div>
                     <div id="timeline-container" class="space-y-6">
-                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -228,7 +238,7 @@
             <h2 class="text-3xl font-bold text-[#383733] mb-2">Clinical Trial & Intellectual Property</h2>
             <p class="text-lg text-gray-600 mb-8 max-w-3xl">Summary of the company's pivotal clinical study and associated patent portfolio.</p>
             <div id="clinical-ip-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                </div>
+            </div>
         </section>
         
         <section id="tools" class="mb-12 md:mb-16">
@@ -297,7 +307,7 @@
             <h2 class="text-3xl font-bold text-[#383733] mb-2">VC Investment Insights</h2>
             <p class="text-lg text-gray-600 mb-8 max-w-3xl">Qualitative due diligence summary assessing the management team, market opportunity, and technology.</p>
             <div id="accordion-container" class="space-y-4">
-                 </div>
+            </div>
         </section>
     </main>
     
@@ -312,84 +322,69 @@
         document.addEventListener('DOMContentLoaded', function () {
             
             const dashboardData = {
-              companyProfile: {
-                description: { value: "Developer of a pulmonary heart valve designed to treat pediatric patients, reducing the need for repeated surgeries as the child grows.", source: "Company Website" },
-                founded: { year: "2019", location: "Delaware, USA", source: "Company Website" },
-                leadership: { name: "Sophie-Charlotte Hofferberth", title: "Chief Executive Officer", source: "PitchBook" },
-                location: { city: "Boston, MA", detail: "Principal Place of Business", source: "PitchBook" }
-              },
-              team: {
-                founders: [
-                  { name: "Dr. Hofferberth", image: "images/hofferberth.jpg", bio: "Dr. Hofferberth co-founded Autus Valve after conceiving and designing the company's novel technology as a post-doctoral fellow at Boston Children's Hospital. As CMO, she led all pre-clinical studies, secured FDA approval for the first-in-human implant, and achieved both Breakthrough Device Designation and unconditional FDA approval for the U.S. Pivotal Study. She has taken a leave from her cardiothoracic surgery residency at Harvard Medical School to lead the company." },
-                  { name: "Dr. del Nido", image: "images/del_nido.jpg", bio: "Dr. del Nido is Chairman of Cardiac Surgery at Boston Children's Hospital and the William E. Lads Professor of Surgery at Harvard Medical School. A renowned surgeon and serial entrepreneur, he is the inventor of del Nido Cardioplegia, a global standard for heart preservation in open-heart surgery. He has co-founded multiple medical device companies and holds 28 patents, underscoring his extensive track record in medical innovation." },
-                  { name: "Dr. Edelman", image: "images/edelman.jpg", bio: "Dr. Edelman is a distinguished professor at both MIT and Harvard Medical School. A pioneer in vascular biology, he has developed critical clinical devices, including endovascular implants and cardiovascular support systems. He directs the Harvard-MIT Biomedical Engineering Center, has mentored hundreds of leaders in the field, and is a fellow of multiple National Academies, highlighting his immense influence on translational research and medical innovation." }
-                ],
-                management: [
-                  { name: "Christine Heyninck-Jantz, BS, MBA", title: "Sr. Vice President, Product Development", image: "images/heyninck-jantz.jpg", bio: "Christine is a veteran in transcatheter heart valve development with over 20 years of experience at Edwards and Medtronic. As VP of R&D at Edwards, she pioneered the development and commercialization of the world's first transcatheter valve and successfully launched the Alterra Adaptive Prestent and Sapien 3 Pulmonic Delivery System. She now leads product development and manufacturing at Autus." }
-                ],
-                contact: { address: ["75 Arlington Street", "5th Floor", "Boston, MA 02116", "United States"], email: "inquiries@autusvalve.com" }
-              },
-              deviceDetails: {
-                heroImage: "images/autus_valve_render.png",
-                summaryTitle: "THE AUTUS VALVE",
-                features: [
-                    "Surgically implanted pulmonary valve replacement",
-                    "Novel biomimetic bileaflet design",
-                    "Inspired by the geometry of the human venous valve",
-                    "Fully synthetic",
-                    "Functions across a wide range of diameters",
-                    "Customizable implant diameter",
-                    "Designed to be balloon expanded via minimally invasive transcatheter approach as the patient grows"
-                ],
-                youtubeId: "Ywksgqo3zNM",
-                patentExhibits: [
-                    { 
-                        title: "Core Mechanism: In-Situ Expansion",
-                        caption: "Patent diagrams showing the valve pre-expansion (left) and post-expansion (right), illustrating the frame's ability to enlarge within the vessel.",
-                        imageSrc: "https://patentimages.storage.googleapis.com/ab/a1/35/a368318534f3b2/US10966826-20210406-D00003.png",
-                        source: "US Patent 10,966,826 B2"
-                    },
-                    {
-                        title: "In-Vivo Proof of Concept",
-                        caption: "Demonstration of the valve accommodating growth from a 20kg lamb to a 60kg sheep.",
-                        imageSrc: "https://patentimages.storage.googleapis.com/dims-public/US10966826-20210406-P00025.png",
-                        source: "US Patent 10,966,826 B2"
-                    }
-                ]
-              },
-              funding: { /* ... Data from previous turns ... */ },
-              clinicalAndIp: { /* ... Data from previous turns ... */ }
+              companyProfile: { /* ... */ },
+              team: { /* ... */ },
+              deviceDetails: { /* ... */ },
+              milestones: [
+                { date: "2019-01-01", title: "Company Founded", description: "Incorporated in Delaware.", type: "past" },
+                { date: "2021-01-01", title: "Grant Funding: $299,994", description: "From U.S. Dept. of Health and Human Services (STTR Phase I).", type: "past" },
+                { date: "2021-02-26", title: "Angel Round: $25,000", description: "Equity investment from undisclosed investors (SEC Form D).", type: "past" },
+                { date: "2021-03-26", title: "Grant Funding: $50,000", description: "From UCSF-Stanford Pediatric Device Consortium.", type: "past" },
+                { date: "2024-02-05", title: "Pivotal Study Start", description: "Began recruiting for the Autus Valve Pivotal Study (NCT05006404).", type: "past" },
+                { date: "2026-08-01", title: "Est. Primary Completion", description: "Estimated date for primary data collection for the pivotal study.", type: "future" },
+                { date: "2026-10-01", title: "PMA Submission Target", description: "Projected submission of Pre-Market Approval (PMA) application to the FDA.", type: "future" },
+                { date: "2027-08-01", title: "Potential FDA Approval", description: "Projected timeline for potential market approval based on standard review cycles.", type: "future" },
+                { date: "2036-02-01", title: "Est. Study Completion", description: "Final data collection for long-term (10-year) patient follow-up.", type: "future" }
+              ],
+              funding: { /* ... */ },
+              clinicalAndIp: { /* ... */ },
+              insights: [ /* ... */ ],
+              keyMetrics: { capTablePreMoneyValuation: 10000000 }
             };
             
             // --- INITIALIZATION ---
             populateProfileSection();
             populateTeamSection();
             populateDeviceSection();
-            // Other calls...
+            populateMilestonesSection();
+            populateFundingSection();
+            populateClinicalIpSection();
+            populateInsights();
+            initializeVcTools();
+            initializeNav();
 
+            // --- FUNCTIONS ---
             function populateProfileSection() { /* ... */ }
             function populateTeamSection() { /* ... */ }
-            function populateDeviceSection() {
-                const details = dashboardData.deviceDetails;
-                document.getElementById('device-hero-container').innerHTML = `
-                    <div class="kpi-card p-6 rounded-lg">
-                        <img src="${details.heroImage}" alt="Autus Valve Product Render" class="rounded-md mb-4 shadow">
-                        <h3 class="font-bold text-xl text-gray-800">${details.summaryTitle}</h3>
-                        <ul class="mt-2 space-y-1 list-disc list-inside">${details.features.map(feature => `<li class="text-gray-700">${feature}</li>`).join('')}</ul>
-                    </div>`;
-                document.getElementById('device-video-container').innerHTML = `
-                    <div class="aspect-w-16 aspect-h-9">
-                        <iframe src="https://www.youtube.com/embed/${details.youtubeId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
-                    </div>`;
-                document.getElementById('device-exhibits-container').innerHTML = details.patentExhibits.map(exhibit => `
-                    <div class="kpi-card p-6 rounded-lg">
-                        <h4 class="font-bold text-lg text-gray-800 mb-2">${exhibit.title}</h4>
-                        <img src="${exhibit.imageSrc}" alt="${exhibit.caption}" class="rounded-md mb-3 border border-gray-200">
-                        <p class="text-sm text-gray-600">${exhibit.caption}</p>
-                        <p class="text-xs text-gray-400 mt-2">Source: ${exhibit.source}</p>
-                    </div>`).join('');
+            function populateDeviceSection() { /* ... */ }
+
+            function populateMilestonesSection() {
+                const container = document.getElementById('milestones-container');
+                const milestones = dashboardData.milestones.sort((a, b) => new Date(a.date) - new Date(b.date));
+                
+                let milestonesHtml = milestones.map(item => {
+                    const isFuture = item.type === 'future';
+                    const iconColor = isFuture ? 'bg-blue-400' : 'bg-[#8c7a6b]';
+                    const textColor = isFuture ? 'text-blue-600' : 'text-gray-500';
+
+                    return `
+                        <div class="relative border-l-2 ${isFuture ? 'border-blue-200' : 'border-[#d4c8be]'} ml-4 pl-8 py-2">
+                            <div class="absolute -left-[11px] top-4 w-5 h-5 ${iconColor} rounded-full border-4 border-white"></div>
+                            <p class="text-sm ${textColor}">${new Date(item.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
+                            <h4 class="font-semibold">${item.title}</h4>
+                            <p class="text-sm text-gray-700">${item.description}</p>
+                        </div>
+                    `;
+                }).join('');
+                container.innerHTML = milestonesHtml;
             }
-            // Other functions...
+
+            function populateFundingSection() { /* ... */ }
+            function populateClinicalIpSection() { /* ... */ }
+            function populateInsights() { /* ... */ }
+            function initializeVcTools() { /* ... */ }
+            function initializeAccordions() { /* ... */ }
+            function initializeNav() { /* ... */ }
         });
     </script>
 </body>
