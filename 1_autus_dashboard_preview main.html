@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -666,7 +666,7 @@
                         <div class="absolute -left-[9px] top-1 w-4 h-4 bg-[#8c7a6b] rounded-full border-4 border-[#f8f7f4]"></div>
                         <p class="text-sm font-medium text-gray-500">${item.date}</p>
                         <h4 class="font-bold text-gray-800">${item.title}</h4>
-                        <p class="text-sm text-gray-600">${item.description} ${item.sourceUrl ? `<a href="./${item.sourceUrl}" target="_blank" class="source-link">Source</a>` : ''}</p>
+                        <p class="text-sm text-gray-600">${item.description} ${item.sourceUrl ? `<a href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer" class="source-link">Source</a>` : ''}</p>
                     </div>`).join('');
             }
             
@@ -835,4 +835,3 @@
     </script>
 </body>
 </html>
-
